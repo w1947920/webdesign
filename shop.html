@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Action Books Shop</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header, footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            max-width: 50px; /* Adjusted size */
+            height: auto;
+        }
+
+        main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .product-showcase {
+            flex: 1;
+        }
+
+        .product {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            max-height: 200px; /* Adjusted height */
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-description {
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #00c;
+        }
+
+        .product-options {
+            margin-top: 10px;
+        }
+
+        .product-options label {
+            font-weight: bold;
+        }
+
+        .product-options select {
+            margin-top: 5px;
+            padding: 5px;
+            width: 100%;
+        }
+
+        .product-options input[type="number"] {
+            margin-top: 5px;
+            padding: 5px;
+            width: 100%;
+        }
+
+        .order-summary {
+            flex-basis: 300px;
+        }
+
+        .basket {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .basket-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .basket-item img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+
+        .basket-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            clear: both; /* Ensure footer clears floated elements */
+        }
+
+        .checkout-form {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .checkout-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .checkout-form input[type="text"],
+        .checkout-form input[type="email"],
+        .checkout-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .checkout-form input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .checkout-form input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 5px;
+        }
+
+        .success-message {
+            color: green;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Climate Action Books Shop</h1>
+        <img id="sigma" src="Rotating_earth_animated_transparent.gif" alt="sigma">
+    </header>
+
+    <main>
+        <section class="product-showcase">
+            <div class="container">
+                <div class="product">
+                    <img src="Time to act.jpg" alt="Book 1">
+                    <div class="product-info">
+                        <h2 class="product-title">Book 1: Time to Act</h2>
+                        <p class="product-description">A comprehensive guide to effective climate action and sustainable solutions.</p>
+                        <p class="product-price">$29.99</p>
+                        <div class="product-options">
+                            <label for="quantity1">Quantity:</label>
+                            <input type="number" id="quantity1" name="quantity1" value="1" min="1">
+                        </div>
+                        <button class="add-to-cart" data-title="Book 1: Time to Act" data-price="29.99">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product">
+                    <img src="The climate action.jpg" alt="Book 2">
+                    <div class="product-info">
+                        <h2 class="product-title">Book 2: The Climate Action</h2>
+                        <p class="product-description">Explore the transformative power of renewable energy in combating climate change.</p>
+                        <p class="product-price">$24.99</p>
+                        <div class="product-options">
+                            <label for="quantity2">Quantity:</label>
+                            <input type="number" id="quantity2" name="quantity2" value="1" min="1">
+                        </div>
+                        <button class="add-to-cart" data-title="Book 2: The Climate Action" data-price="24.99">Add to Cart</button>
+                    </div>
+                </div>
+        
+                <div class="product">
+                    <img src="Keys To Climate Action book.jpg" alt="Book 3">
+                    <div class="product-info">
+                        <h2 class="product-title">Book 3: Keys To Climate Action</h2>
+                        <p class="product-description">Engaging and educational book for young readers to learn about climate change and how they can make a difference.</p>
+                        <p class="product-price">$19.99</p>
+                        <div class="product-options">
+                            <label for="quantity3">Quantity:</label>
+                            <input type="number" id="quantity3" name="quantity3" value="1" min="1">
+                        </div>
+                        <button class="add-to-cart" data-title="Book 3: Keys To Climate Action" data-price="19.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <aside class="order-summary">
+            <div class="container">
+                <div class="basket">
+                    <h2>Your Basket</h2>
+                    <div id="basket-items"></div>
+                    <div class="basket-total">
+                        Total: $0.00
+                    </div>
+                </div>
+
+                <div class="checkout-form">
+                    <h2>Checkout</h2>
+                    <form id="checkoutForm" action="https://formspree.io/f/myyrndry" method="POST">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="address">Shipping Address:</label>
+                        <textarea id="address" name="address" rows="4" required></textarea>
+
+                        <input type="submit" value="Checkout">
+                    </form>
+                    <p class="success-message" id="checkoutMessage"></p>
+                </div>
+            </div>
+        </aside>
+    </main>
+    
+    <footer>
+        &copy; 2024 Climate Action Books Shop. All rights reserved.
+    </footer>
+    
+    <script>
+        // JavaScript code here
+        // Get elements
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const basketItems = document.getElementById('basket-items');
+        const basketTotal = document.querySelector('.basket-total');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const checkoutMessage = document.getElementById('checkoutMessage');
+
+        // Add event listeners
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', addToCart);
+        });
+
+        checkoutForm.addEventListener('submit', submitCheckout);
+
+        // Add to cart function
+        function addToCart(event) {
+            const button = event.target;
+            const title = button.dataset.title;
+            const price = parseFloat(button.dataset.price);
+            const quantityInput = button.previousElementSibling.querySelector('input[type="number"]');
+            const quantity = parseInt(quantityInput.value);
+
+            const itemTotal = price * quantity;
+
+            const itemHTML = `<div class="basket-item">
+                                <img src="${button.parentElement.parentElement.querySelector('img').src}" alt="${title}">
+                                <div>${title} x ${quantity}</div>
+                                <div>$${itemTotal.toFixed(2)}</div>
+                                <button class="remove-item" data-title="${title}" data-price="${price}" data-quantity="${quantity}">Remove</button>
+                              </div>`;
+
+            basketItems.innerHTML += itemHTML;
+
+            updateTotal();
+
+            const removeButtons = document.querySelectorAll('.remove-item');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', removeItem);
+            });
+        }
+
+        // Remove item function
+        function removeItem(event) {
+            const button = event.target;
+            const title = button.dataset.title;
+            const price = parseFloat(button.dataset.price);
+            const quantity = parseInt(button.dataset.quantity);
+
+            const items = document.querySelectorAll('.basket-item');
+            items.forEach(item => {
+                const itemTitle = item.querySelector('img').alt;
+                if (itemTitle === title) {
+                    item.remove();
+                }
+            });
+
+            updateTotal();
+        }
+
+        // Update total function
+        function updateTotal() {
+            let totalPrice = 0;
+            document.querySelectorAll('.basket-item').forEach(item => {
+                const priceText = item.querySelector('div:nth-child(3)').textContent.trim();
+                const itemPrice = parseFloat(priceText.substring(1)); // Extracting the numerical value from the text
+                if (!isNaN(itemPrice)) {
+                    totalPrice += itemPrice;
+                }
+            });
+
+            basketTotal.textContent = `Total: $${totalPrice.toFixed(2)}`;
+        }
+
+        // Checkout form submission function
+        function submitCheckout(event) {
+            event.preventDefault();
+            // Here you can handle the checkout form submission
+            // For now, let's just display a success message
+            checkoutMessage.textContent = "Checkout Successful!";
+            // You may want to perform further actions here like clearing the basket, etc.
+        }
+    </script>
+</body>
+</html>
